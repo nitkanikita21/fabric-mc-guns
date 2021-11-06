@@ -14,6 +14,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -31,6 +34,8 @@ public class WeaponWorkbench extends Block {
             //This will call the createScreenHandlerFactory method from BlockWithEntity, which will return our blockEntity casted to
             //a namedScreenHandlerFactory. If your block class does not extend BlockWithEntity, it needs to implement createScreenHandlerFactory.
             player.sendMessage(new LiteralText("HEY!"),true);
+
+            player.setPos(player.getX()+1,player.getY()+1,player.getZ()+1);
         }
         return ActionResult.SUCCESS;
     }
