@@ -1,4 +1,4 @@
-package me.nitkanikita.fabricmcguns.gui;
+/*package me.nitkanikita.fabricmcguns.gui;
 
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
@@ -25,4 +25,4 @@ public class ExampleGuiDescription extends SyncedGuiDescription {
 
         root.validate(this);
     }
-}
+}*/

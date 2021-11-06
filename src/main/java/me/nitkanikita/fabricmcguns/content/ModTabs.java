@@ -16,8 +16,4 @@ public class ModTabs {
     public static ItemGroup WEAPON_GROUP = FabricItemGroupBuilder.create(new Identifier("mcguns", "weapons"))
             .icon(() -> new ItemStack(ModRegister.modItems.get("m4a4s")))
             .build();
-
-    public static void init(){
-
-    }
 }

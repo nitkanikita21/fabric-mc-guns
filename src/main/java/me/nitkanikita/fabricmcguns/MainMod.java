@@ -2,6 +2,7 @@ package me.nitkanikita.fabricmcguns;
 
 import me.nitkanikita.fabricmcguns.content.ModTabs;
 import me.nitkanikita.fabricmcguns.content.blocks.WeaponWorkbench;
+import me.nitkanikita.fabricmcguns.content.items.Scheme;
 import me.nitkanikita.fabricmcguns.content.items.weapons.Glock15;
 import me.nitkanikita.fabricmcguns.content.items.weapons.M4A4s;
 import net.fabricmc.api.ModInitializer;
@@ -26,7 +27,7 @@ public class MainMod implements ModInitializer {
 
 		ModRegister.registryItem("m4a4s",new M4A4s());
 		ModRegister.registryItem("glock15",new Glock15());
-		ModRegister.registryItem("scheme",new Item(new Item.Settings().group(ModTabs.COMMON_GROUP)));
+		ModRegister.registryItem("scheme",new Scheme());
 
 		ModRegister.registryGiveableBlock("weapon_workbench",new WeaponWorkbench());
 
