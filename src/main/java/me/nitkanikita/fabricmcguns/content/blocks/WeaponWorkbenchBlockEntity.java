@@ -1,11 +1,9 @@
 package me.nitkanikita.fabricmcguns.content.blocks;
 
-import me.nitkanikita.fabricmcguns.MainMod;
 import me.nitkanikita.fabricmcguns.ModRegister;
-import me.nitkanikita.fabricmcguns.gui.ExampleGuiDescription;
+import me.nitkanikita.fabricmcguns.gui.WorkbenchGuiDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -30,6 +28,6 @@ public class WeaponWorkbenchBlockEntity extends BlockEntity implements NamedScre
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new ExampleGuiDescription(syncId, inv, ScreenHandlerContext.create(world, pos));
+        return new WorkbenchGuiDescription(syncId, inv, ScreenHandlerContext.create(world, pos));
     }
 }

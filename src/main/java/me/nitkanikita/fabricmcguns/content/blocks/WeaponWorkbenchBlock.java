@@ -41,4 +41,9 @@ public class WeaponWorkbenchBlock extends BlockWithEntity {
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new WeaponWorkbenchBlockEntity(pos,state);
     }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
 }

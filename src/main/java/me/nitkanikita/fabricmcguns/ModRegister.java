@@ -1,9 +1,8 @@
 package me.nitkanikita.fabricmcguns;
 
 import me.nitkanikita.fabricmcguns.content.ModTabs;
-import me.nitkanikita.fabricmcguns.content.blocks.WeaponWorkbenchBlock;
 import me.nitkanikita.fabricmcguns.content.blocks.WeaponWorkbenchBlockEntity;
-import me.nitkanikita.fabricmcguns.gui.ExampleGuiDescription;
+import me.nitkanikita.fabricmcguns.gui.WorkbenchGuiDescription;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Block;
@@ -24,7 +23,7 @@ public class ModRegister {
     public static HashMap<String, Block> modBlocks = new HashMap<>();
 
     public static class ModScreenHandlers{
-        public static ScreenHandlerType<ExampleGuiDescription> SCREEN_HANDLER_TYPE;
+        public static ScreenHandlerType<WorkbenchGuiDescription> SCREEN_HANDLER_TYPE;
     }
 
     public static class ModBlockEntities{
@@ -50,7 +49,7 @@ public class ModRegister {
     }
 
     public static void postInit(){
-        ModScreenHandlers.SCREEN_HANDLER_TYPE =  ScreenHandlerRegistry.registerSimple(new Identifier("mcguns","weapon_workbench"), (syncId, inventory) -> new ExampleGuiDescription(syncId, inventory, ScreenHandlerContext.EMPTY));
+        ModScreenHandlers.SCREEN_HANDLER_TYPE =  ScreenHandlerRegistry.registerSimple(new Identifier("mcguns","weapon_workbench"), (syncId, inventory) -> new WorkbenchGuiDescription(syncId, inventory, ScreenHandlerContext.EMPTY));
         ModBlockEntities.WEAPON_WORKBENCH_TYPE = Registry.register(
                 Registry.BLOCK_ENTITY_TYPE,
                 new Identifier("mcguns","weapon_workbench"),
