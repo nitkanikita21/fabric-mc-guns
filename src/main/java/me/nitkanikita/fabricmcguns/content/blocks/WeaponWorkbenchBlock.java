@@ -1,10 +1,7 @@
 package me.nitkanikita.fabricmcguns.content.blocks;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.Material;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -23,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
 
-public class WeaponWorkbenchBlock extends Block {
+public class WeaponWorkbenchBlock extends BlockWithEntity {
     public WeaponWorkbenchBlock() {
         super(Settings.of(Material.METAL).strength(0.2f).dropsNothing());
     }
@@ -39,4 +36,9 @@ public class WeaponWorkbenchBlock extends Block {
     }
 
 
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new WeaponWorkbenchBlockEntity(pos,state);
+    }
 }

@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/weapon_workbench",
 	"textures": {
 		"0": "mcguns:item/blast_furnace_side",
 		"1": "mcguns:item/blast_furnace_top",
