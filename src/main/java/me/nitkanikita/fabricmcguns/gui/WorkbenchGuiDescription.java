@@ -6,9 +6,11 @@ import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WLabel;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
+import io.github.cottonmc.cotton.gui.widget.icon.ItemIcon;
 import io.github.cottonmc.cotton.gui.widget.icon.TextureIcon;
 import me.nitkanikita.fabricmcguns.MainMod;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -17,27 +19,43 @@ import net.minecraft.util.Identifier;
 public class WorkbenchGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 1;
 
+    WGridPanel panelCraft = new WGridPanel();
+
     public WorkbenchGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(MainMod.ModScreenHandlers.SCREEN_HANDLER_TYPE, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context));
 
         WGridPanel root = new WGridPanel();
         setRootPanel(root);
-        root.setSize(300, 200);
+        root.setSize(150, 180);
         root.setInsets(Insets.ROOT_PANEL);
 
-        WItemSlot itemSlot = WItemSlot.of(blockInventory, 0);
-        itemSlot.setIcon(new TextureIcon(new Identifier("mcguns","scheme_icon")));
-        itemSlot.setFilter(itemStack -> {
+        WItemSlot scheme = WItemSlot.of(blockInventory, 0);
+        scheme.setIcon(new ItemIcon(new ItemStack(MainMod.ModItems.SCHEME_ICON)));
+        scheme.setFilter(itemStack -> {
             return itemStack.getItem().equals(MainMod.ModItems.SCHEME);
         });
-        itemSlot.setModifiable(true);
+        scheme.setModifiable(true);
 
         WLabel schemeName = new WLabel(new TranslatableText("mcguns.gui.weapon_workbench.scheme_label").formatted(Formatting.BOLD));
         schemeName.setHorizontalAlignment(HorizontalAlignment.CENTER);
 
+        scheme.addChangeListener((slot, inventory, index, stack) -> {
+            if(inventory.getStack(0).equals(ItemStack.EMPTY)){
+                root.remove(panelCraft);
+            }else {
+                root.add(panelCraft,4,0);
+            }
+        });
 
-        root.add(schemeName,2,1);
-        root.add(itemSlot, 2, 2);
+        panelCraft.add(WItemSlot.of(blockInventory,1),2,1);
+        panelCraft.add(WItemSlot.of(blockInventory,2),1,2);
+        panelCraft.add(WItemSlot.of(blockInventory,3),2,2);
+        panelCraft.add(WItemSlot.of(blockInventory,4),3,2);
+        panelCraft.add(WItemSlot.of(blockInventory,1),2,3);
+
+        root.add(panelCraft,4,0);
+        root.add(schemeName,1,1);
+        root.add(scheme, 1, 2);
 
         root.add(this.createPlayerInventoryPanel(), 0, 5);
 
@@ -45,4 +63,9 @@ public class WorkbenchGuiDescription extends SyncedGuiDescription {
     }
 
 
+
+    @Override
+    public HorizontalAlignment getTitleAlignment() {
+        return HorizontalAlignment.CENTER;
+    }
 }
