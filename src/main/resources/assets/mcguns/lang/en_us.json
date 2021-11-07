@@ -2,7 +2,7 @@
   "item.mcguns.glock15": "§6Glock-15",
   "item.mcguns.m4a4s": "§6M4A4s",
   "item.mcguns.scheme": "§eWeapon scheme",
-  "block.mcguns.weapon_workbench": "§3Weapon Workbench",
+  "item.mcguns.weapon_workbench": "§3Weapon Workbench",
   "itemGroup.mcguns.weapons": "MCGuns Weapons",
   "itemGroup.mcguns.common": "MCGuns Common",
 

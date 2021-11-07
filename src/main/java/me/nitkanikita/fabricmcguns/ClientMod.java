@@ -9,6 +9,6 @@ public class ClientMod implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ScreenRegistry.<WorkbenchGuiDescription, WorkbenchBlockScreen>register(ModRegister.ModScreenHandlers.SCREEN_HANDLER_TYPE, (gui, inventory, title) -> new WorkbenchBlockScreen(gui, inventory.player, title));
+        ScreenRegistry.<WorkbenchGuiDescription, WorkbenchBlockScreen>register(MainMod.ModScreenHandlers.SCREEN_HANDLER_TYPE, (gui, inventory, title) -> new WorkbenchBlockScreen(gui, inventory.player, title));
     }
 }

@@ -1,6 +1,6 @@
 package me.nitkanikita.fabricmcguns.content.blocks;
 
-import me.nitkanikita.fabricmcguns.ModRegister;
+import me.nitkanikita.fabricmcguns.MainMod;
 import me.nitkanikita.fabricmcguns.gui.WorkbenchGuiDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class WeaponWorkbenchBlockEntity extends BlockEntity implements NamedScreenHandlerFactory {
     public WeaponWorkbenchBlockEntity(BlockPos pos, BlockState state) {
-        super(ModRegister.ModBlockEntities.WEAPON_WORKBENCH_TYPE, pos, state);
+        super(MainMod.ModBlockEntities.WEAPON_WORKBENCH_TYPE, pos, state);
     }
 
     @Override

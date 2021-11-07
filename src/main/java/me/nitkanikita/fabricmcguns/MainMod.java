@@ -1,11 +1,23 @@
 package me.nitkanikita.fabricmcguns;
 
+import me.nitkanikita.fabricmcguns.content.ModTabs;
 import me.nitkanikita.fabricmcguns.content.blocks.WeaponWorkbenchBlock;
+import me.nitkanikita.fabricmcguns.content.blocks.WeaponWorkbenchBlockEntity;
 import me.nitkanikita.fabricmcguns.content.items.Scheme;
 import me.nitkanikita.fabricmcguns.content.items.WeaponBasic;
 import me.nitkanikita.fabricmcguns.content.items.weapons.Glock15;
 import me.nitkanikita.fabricmcguns.content.items.weapons.M4A4s;
+import me.nitkanikita.fabricmcguns.gui.WorkbenchGuiDescription;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.item.Item;
+import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,16 +29,56 @@ public class MainMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		Registry.register(Registry.ITEM,new Identifier(MOD_ID,
+				"glock15"),ModItems.GLOCK15);
+		Registry.register(Registry.ITEM,new Identifier(MOD_ID,
+				"m4a4s"),ModItems.M4A4S);
 
-		ModRegister.registryItem("m4a4s",new M4A4s());
-		ModRegister.registryItem("glock15",new Glock15());
-		ModRegister.registryItem("scheme",new Scheme((WeaponBasic) ModRegister.modItems.get("m4a4s")));
+		Registry.register(Registry.ITEM,new Identifier(MOD_ID,
+				"scheme"),ModItems.SCHEME);
+		Registry.register(Registry.ITEM,new Identifier(MOD_ID,
+				"weapon_workbench"),ModItems.WEAPON_WORKBENCH_BLOCKITEM);
 
-		ModRegister.registryGiveableBlock("weapon_workbench",new WeaponWorkbenchBlock());
 
-		ModRegister.postInit();
+
+		Registry.register(Registry.BLOCK,new Identifier(MOD_ID,
+				"weapon_workbench"),ModBlocks.WEAPON_WORKBENCH);
+
+		ModBlockEntities.WEAPON_WORKBENCH_TYPE = Registry.register(
+				Registry.BLOCK_ENTITY_TYPE,
+				new Identifier("mcguns","weapon_workbench"),
+				FabricBlockEntityTypeBuilder.create(
+						WeaponWorkbenchBlockEntity::new,
+						ModBlocks.WEAPON_WORKBENCH
+				).build(null)
+		);
+
+		ModScreenHandlers.SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(
+				new Identifier("mcguns","weapon_workbench"),
+				(syncId, inventory) -> new WorkbenchGuiDescription(syncId, inventory, ScreenHandlerContext.EMPTY)
+		);
+	}
+
+	public static String MOD_ID = "mcguns";
+
+	public static class ModItems {
+		public final static Item M4A4S = new M4A4s();
+		public final static Item GLOCK15 = new Glock15();
+
+		public final static Item SCHEME = new Scheme(new Glock15());
+
+		public final static Item WEAPON_WORKBENCH_BLOCKITEM = new Item(new Item.Settings().group(ModTabs.COMMON_GROUP));
+	}
+
+	public static class ModBlocks {
+		public final static Block WEAPON_WORKBENCH = new WeaponWorkbenchBlock();
+	}
+
+	public static class ModScreenHandlers{
+		public static ScreenHandlerType<WorkbenchGuiDescription> SCREEN_HANDLER_TYPE;
+	}
+
+	public static class ModBlockEntities{
+		public static BlockEntityType<WeaponWorkbenchBlockEntity> WEAPON_WORKBENCH_TYPE;
 	}
 }
