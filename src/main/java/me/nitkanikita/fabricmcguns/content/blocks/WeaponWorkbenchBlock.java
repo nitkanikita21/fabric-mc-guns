@@ -23,8 +23,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
 
-public class WeaponWorkbench extends Block {
-    public WeaponWorkbench() {
+public class WeaponWorkbenchBlock extends Block {
+    public WeaponWorkbenchBlock() {
         super(Settings.of(Material.METAL).strength(0.2f).dropsNothing());
     }
 
@@ -33,9 +33,7 @@ public class WeaponWorkbench extends Block {
         if (!world.isClient) {
             //This will call the createScreenHandlerFactory method from BlockWithEntity, which will return our blockEntity casted to
             //a namedScreenHandlerFactory. If your block class does not extend BlockWithEntity, it needs to implement createScreenHandlerFactory.
-            player.sendMessage(new LiteralText("HEY!"),true);
-
-            player.setPos(player.getX()+1,player.getY()+1,player.getZ()+1);
+            player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
         }
         return ActionResult.SUCCESS;
     }

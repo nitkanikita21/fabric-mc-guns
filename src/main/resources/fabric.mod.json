@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "me.nitkanikita.fabricmcguns.MainMod"
+    ],
+    "client": [
+      "me.nitkanikita.fabricmcguns.ClientMod"
     ]
   },
   "mixins": [

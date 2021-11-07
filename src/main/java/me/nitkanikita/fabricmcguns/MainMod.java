@@ -1,16 +1,11 @@
 package me.nitkanikita.fabricmcguns;
 
-import me.nitkanikita.fabricmcguns.content.ModTabs;
-import me.nitkanikita.fabricmcguns.content.blocks.WeaponWorkbench;
+import me.nitkanikita.fabricmcguns.content.blocks.WeaponWorkbenchBlock;
 import me.nitkanikita.fabricmcguns.content.items.Scheme;
 import me.nitkanikita.fabricmcguns.content.items.WeaponBasic;
 import me.nitkanikita.fabricmcguns.content.items.weapons.Glock15;
 import me.nitkanikita.fabricmcguns.content.items.weapons.M4A4s;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,7 +25,8 @@ public class MainMod implements ModInitializer {
 		ModRegister.registryItem("glock15",new Glock15());
 		ModRegister.registryItem("scheme",new Scheme((WeaponBasic) ModRegister.modItems.get("m4a4s")));
 
-		ModRegister.registryGiveableBlock("weapon_workbench",new WeaponWorkbench());
+		ModRegister.registryGiveableBlock("weapon_workbench",new WeaponWorkbenchBlock());
 
+		ModRegister.postInit();
 	}
 }
