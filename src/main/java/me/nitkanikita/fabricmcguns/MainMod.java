@@ -37,7 +37,9 @@ public class MainMod implements ModInitializer {
 		Registry.register(Registry.ITEM,new Identifier(MOD_ID,
 				"scheme"),ModItems.SCHEME);
 		Registry.register(Registry.ITEM,new Identifier(MOD_ID,
-				"weapon_workbench"),ModItems.WEAPON_WORKBENCH_BLOCKITEM);
+				"scheme_icon"),ModItems.SCHEME);
+		Registry.register(Registry.ITEM,new Identifier(MOD_ID,
+				"weapon_workbench"),ModItems.SCHEME_ICON);
 
 
 
@@ -66,6 +68,7 @@ public class MainMod implements ModInitializer {
 		public final static Item GLOCK15 = new Glock15();
 
 		public final static Item SCHEME = new Scheme(new Glock15());
+		public final static Item SCHEME_ICON = new Item(new Item.Settings());
 
 		public final static Item WEAPON_WORKBENCH_BLOCKITEM = new Item(new Item.Settings().group(ModTabs.COMMON_GROUP));
 	}
