@@ -1,0 +1,13 @@
+{
+  "item.mcguns.glock15": "§6Glock-15",
+  "item.mcguns.m4a4s": "§6M4A4s",
+  "item.mcguns.scheme": "§eWapenscheme",
+  "block.mcguns.weapon_workbench": "§3Wapen Werknank",
+  "itemGroup.mcguns.weapons": "MCGuns Wapen",
+  "itemGroup.mcguns.common": "MCGuns Algemeen",
+  "item.mcguns.m4a4s.tooltip_title": "Geweer",
+  "item.mcguns.glock15.tooltip_title": "Hand geweer",
+  "item.mcguns.scheme.tooltip_1": "Dit is die Skema van die wapen",
+  "mcguns.gui.weapon_workbench.title": "Werkbank",
+  "mcguns.parts_material.metallic": "iron"
+}
