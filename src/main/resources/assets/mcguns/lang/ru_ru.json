@@ -1,0 +1,13 @@
+{
+  "item.mcguns.glock15": "§6Глок-15",
+  "item.mcguns.m4a4s": "§6M4A4s",
+  "item.mcguns.scheme": "§eСхема оржия",
+  "block.mcguns.weapon_workbench": "§3Оружейный верстак",
+  "itemGroup.mcguns.weapons": "MCGuns Оружие",
+  "itemGroup.mcguns.common": "MCGuns Прочее",
+  "item.mcguns.m4a4s.tooltip_title": "Автомат",
+  "item.mcguns.glock15.tooltip_title": "Тактический пистолет",
+  "item.mcguns.scheme.tooltip_1": "Это схема для оружия",
+  "mcguns.gui.weapon_workbench.title": "Верстак",
+  "mcguns.parts_material.metallic": "железо"
+}
