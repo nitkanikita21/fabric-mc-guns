@@ -2,6 +2,7 @@
   "item.mcguns.glock15": "§6Глок-15",
   "item.mcguns.m4a4s": "§6M4A4s",
   "item.mcguns.scheme": "§eСхема оржия",
+  "item.mcguns.oil_bucket": "§3Оружейное масло",
   "block.mcguns.weapon_workbench": "§3Оружейный верстак",
   "itemGroup.mcguns.weapons": "MCGuns Оружие",
   "itemGroup.mcguns.common": "MCGuns Прочее",

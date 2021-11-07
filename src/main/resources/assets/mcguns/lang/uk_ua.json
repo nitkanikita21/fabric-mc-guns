@@ -1,13 +1,14 @@
 {
-  "item.mcguns.glock15": "§6Glock-15",
+  "item.mcguns.glock15": "§6Глок-15",
   "item.mcguns.m4a4s": "§6M4A4s",
-  "item.mcguns.scheme": "§eWeapon scheme",
-  "block.mcguns.weapon_workbench": "§3Weapon Workbench",
-  "itemGroup.mcguns.weapons": "MCGuns Weapons",
-  "itemGroup.mcguns.common": "MCGuns Common",
-  "item.mcguns.m4a4s.tooltip_title": "Automatic rigle gun",
-  "item.mcguns.glock15.tooltip_title": "Tactical fast pistol",
-  "item.mcguns.scheme.tooltip_1": "This is the scheme for the weapon",
-  "mcguns.gui.weapon_workbench.title": "Workbench",
-  "mcguns.parts_material.metallic": ""
+  "item.mcguns.scheme": "§eСхема зброї",
+  "item.mcguns.oil_bucket": "§3Масло для зброї",
+  "block.mcguns.weapon_workbench": "§3Верстат для зброї",
+  "itemGroup.mcguns.weapons": "MCGuns Зброя",
+  "itemGroup.mcguns.common": "MCGuns Загальне",
+  "item.mcguns.m4a4s.tooltip_title": "Автоматична гвинтівка",
+  "item.mcguns.glock15.tooltip_title": "Швидкий тактичний пістолет",
+  "item.mcguns.scheme.tooltip_1": "Це схема для створення зброї",
+  "mcguns.gui.weapon_workbench.title": "Верстат для зброї",
+  "mcguns.parts_material.metallic": "Залізо"
 }

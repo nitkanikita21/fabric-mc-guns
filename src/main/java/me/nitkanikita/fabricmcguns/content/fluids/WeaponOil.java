@@ -88,23 +88,23 @@ public abstract class WeaponOil extends FlowableFluid{
         }
         @Override
         public Fluid getStill() {
-            return MainMod.STILL_ACID;
+            return MainMod.ModFluilds.STILL_ACID;
         }
 
         @Override
         public Fluid getFlowing() {
-            return MainMod.FLOWING_ACID;
+            return MainMod.ModFluilds.FLOWING_ACID;
         }
 
         @Override
         public Item getBucketItem() {
-            return MainMod.ACID_BUCKET;
+            return MainMod.ModItems.ACID_BUCKET;
         }
 
         @Override
         protected BlockState toBlockState(FluidState fluidState) {
             // getBlockStateLevel converts the LEVEL_1_8 of the fluid state to the LEVEL_15 the fluid block uses
-            return MainMod.ACID.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(fluidState));
+            return MainMod.ModBlocks.ACID.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(fluidState));
         }
 
         public static class Flowing extends WeaponOil {
